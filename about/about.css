@@ -1,0 +1,546 @@
+/* ==========================================================================
+   1. GLOBAL RESET & BASE SETUP (EXACT CLONE FROM HOME)
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    /* Recreating the dark green radial glow from the image */
+    background: radial-gradient(circle at 75% 50%, #153c24, #081812 70%);
+    color: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   2. NAVBAR & TABS STYLING (EXACT CLONE FROM HOME)
+   ========================================================================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 3%;
+}
+
+.logo img {
+    height: 65px; /* Adjust this to fit your actual logo perfectly */
+}
+
+.nav-links {
+    display: flex;
+    margin-left: auto; /* This pushes the links to the right */
+    margin-right: 40px; /* This creates the gap between links and button */
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 45px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    opacity: 0.8;
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #48CAE4;
+    opacity: 1;
+}
+
+/* ==========================================================================
+   3. GLOBAL BUTTON STYLING (EXACT CLONE FROM HOME)
+   ========================================================================== */
+.btn {
+    padding: 18px 45px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 1px;
+    transition: 0.3s ease;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.btn-white {
+    background-color: #ffffff;
+    color: #000000;
+    font-weight: 500;
+    border: 1px solid transparent;
+}
+
+.btn-white:hover {
+    background-color: transparent !important;
+    color: #ffffff !important;
+    border-color: #ffffff !important; /* Just change the color, don't add a new border */
+}
+
+/* ==========================================================================
+   4. ABOUT PAGE UNIQUE HERO CONTENT (MONTSERRAT MEDIUM)
+   ========================================================================== */
+.about-hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* Aligns title context nicely inside the viewport block */
+    min-height: calc(100vh - 125px); 
+    padding: 0 5%;
+}
+
+.about-hero-content {
+    max-width: 900px;
+}
+
+.about-hero-content h1 {
+    font-size: 72px; 
+    font-weight: 500; /* Montserrat Medium weight */
+    line-height: 1.25;
+    letter-spacing: -1px;
+    color: #ffffff;
+	text-align: center;
+}
+
+/* ==========================================================================
+   5. DISPLAY LAYOUT ADAPTABILITY (EXACT CLONE FROM HOME BREAKPOINTS)
+   ========================================================================== */
+html, body {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+/* Handles fluid downscaling for custom display monitors */
+@media (max-width: 1200px) {
+    h1 {
+        font-size: clamp(2.5rem, 8vw, 4.5rem) !important;
+    }
+}
+
+@media (max-width: 1100px) {
+    .about-hero-content h1 { font-size: 56px; }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 5%;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        margin: 0 !important;
+        width: 100%;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .nav-links a {
+        margin: 0 10px;
+        font-size: 14px;
+    }
+    
+    .about-hero-content h1 { 
+        font-size: 42px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .btn {
+        width: 100%; /* Buttons become full-width for easy thumb tapping */
+        padding: 15px;
+    }
+}
+
+
+
+
+/* =========================================
+   WHO WE ARE SECTION (PIXEL PERFECT)
+========================================= */
+
+.wwa-section {
+    background-color: #FFFFFF; /* Crisp white section background */
+    padding: 100px 5%; /* Side margins match your homepage template rules precisely */
+    font-family: 'Montserrat', sans-serif;
+    color: #000000;
+}
+
+.wwa-container {
+    max-width: 1300px; /* Aligns with your homepage max grid containers */
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Clean split layout proportion */
+    gap: 80px; /* Spacing between image container and description text blocks */
+    align-items: center;
+}
+
+/* --- Left Image Box Elements --- */
+.wwa-img-box {
+    width: 100%;
+    aspect-ratio: 560 / 415; /* Keeps the dimensions in exact proportion to the screenshot */
+    background-color: #D3E4A2; /* The subtle green accent block placeholder */
+    border-radius: 16px; /* Smooth rounded corners matching your story cards */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wwa-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* --- Right Side Content Elements --- */
+.wwa-content-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.wwa-tagline {
+    color: #6b7a85;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+
+.wwa-circle {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border: 2px solid #48CAE4; /* Theme signature cyan circle outline */
+    border-radius: 50%;
+}
+
+.wwa-title {
+    font-size: 46px; /* Exact match to your .os-title font sizing rule */
+    font-weight: 400; /* Clean light/regular visual style */
+    line-height: 1.25;
+    color: #111111;
+    margin-bottom: 35px;
+}
+
+.wwa-desc {
+    font-size: 15px; /* Exact match to your native body and card description sizes */
+    line-height: 1.7;
+    color: #333333;
+    font-weight: 400;
+    margin-bottom: 40px;
+    letter-spacing: 0.3px;
+}
+
+/* --- Specialized Dark Accent Button --- */
+.wwa-btn {
+    background-color: #081812; /* Signature dark background */
+    color: #FFFFFF;
+    padding: 16px 45px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 1px;
+    transition: 0.3s ease;
+    display: inline-block;
+    border: 1px solid transparent;
+}
+
+.wwa-btn:hover {
+    background-color: transparent;
+    color: #081812;
+    border-color: #081812;
+}
+
+/* --- Fluid Display Adaptations --- */
+@media (max-width: 1024px) {
+    .wwa-grid { gap: 40px; }
+    .wwa-title { font-size: 38px; }
+}
+
+@media (max-width: 900px) {
+    .wwa-container { grid-template-columns: 1fr; gap: 45px; }
+    .wwa-content-box { align-items: center; text-align: center; }
+    .wwa-tagline { justify-content: center; }
+    .wwa-btn { width: 100%; text-align: center; }
+}
+
+
+
+
+/* =========================================
+   PROGRAM BENEFITS SECTION (COMPLETE MATRIX)
+========================================= */
+
+.pb-section {
+    background-color: #FAFAFA; /* Off-white container background matching Our Story */
+    padding: 100px 5%;        /* Identical master side margins used on homepage */
+    font-family: 'Montserrat', sans-serif;
+    color: #000000;
+}
+
+.pb-container {
+    max-width: 1300px;        /* Synchronized grid row alignment threshold */
+    margin: 0 auto;
+}
+
+/* --- Section Header Styling --- */
+.pb-header {
+    text-align: left; 
+    margin-bottom: 50px;
+}
+
+.pb-tagline {
+    color: #6b7a85;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.pb-circle {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border: 2px solid #48CAE4; /* Cyan bullet ring signature */
+    border-radius: 50%;
+}
+
+.pb-title {
+    font-size: 46px; 
+    font-weight: 400; 
+    line-height: 1.3;
+    color: #111111;
+}
+
+/* --- Premium Composite Layout Card (CSS Grid Engine) --- */
+.pb-card {
+    background-color: #F6F5ED; /* Cream card canvas background */
+    border-radius: 20px;
+    padding: 5px;             /* The exact 5px framing border around the image */
+    
+    /* Strict Grid layout forces row height to perfectly shrink to text box height */
+    display: grid;
+    grid-template-columns: 1.2fr 1fr; 
+    box-sizing: border-box;
+    width: 100%;
+    
+    /* THE INTER-CARD INTERVAL: 
+       Ensures exactly 40px of breathing room gap drops between consecutive boxes 
+    */
+    margin-bottom: 40px; 
+}
+
+.pb-card:last-child {
+    margin-bottom: 0; /* Prevents trailing white space leak at the base of the section */
+}
+
+/* THE FLIP MECHANIC:
+   For cards with the reverse tag, this flips the image track to the left side 
+   while maintaining your precise grid container alignment properties perfectly.
+*/
+.pb-card-reverse {
+    grid-template-columns: 1fr 1.2fr;
+}
+
+/* --- Content Area (Perfect Uniform Margin Symmetry) --- */
+.pb-text-box {
+    /* Flat 40px padding forces top, bottom, and side paddings to be exactly identical */
+    padding: 40px; 
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* Keeps the headers and paragraph balanced vertically */
+}
+
+.pb-card-title {
+    font-size: 42px;          
+    font-weight: 400;         /* Montserrat Medium weight */
+    margin-bottom: 25px;
+    color: #000000;
+}
+
+.pb-card-desc {
+    font-size: 15px;
+    line-height: 1.4;         /* Compact line spacing to reduce vertical space */
+    color: #333333;
+    font-weight: 400;
+    text-align: justify;      /* Blocks out paragraph text symmetrically */
+    letter-spacing: 0.2px;
+}
+
+/* --- Nested Image Wrapper (Dynamic Adaptability) --- */
+.pb-img-box {
+    background-color: #D3E4A2; /* Asset visual backup placeholder tint */
+    border-radius: 16px;       /* Inner rounding logic ensuring crisp border symmetry */
+    overflow: hidden;
+    
+    /* Grid stretches this container to 100% height to match the text box perfectly */
+    height: 100%; 
+    width: 100%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pb-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;        /* Assures responsive images scale cleanly inside the frame */
+    display: block;
+}
+
+/* --- Responsive Breakpoints (Exact Match To Homepage Ecosystem) --- */
+@media (max-width: 1100px) {
+    .pb-card, .pb-card-reverse { 
+        grid-template-columns: 1fr !important; /* Stacks vertically on tablets/phones uniformly */
+        gap: 15px;
+    }
+    .pb-text-box { 
+        padding: 30px; 
+    }
+    .pb-img-box { 
+        height: 320px; 
+    }
+}
+
+@media (max-width: 768px) {
+    .pb-title { font-size: 38px; }
+    .pb-card-title { font-size: 32px; }
+    .pb-card-desc { text-align: left; }
+}
+
+
+
+
+/* =========================================
+   FINAL FOOTER SECTION (ONE-IMAGE BANNER)
+========================================= */
+
+.ft-section {
+    background-color: #FFFFFF;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.ft-container {
+    max-width: 1300px; /* Matches upper sections */
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+}
+
+/* --- 1. Combined Banner Image --- */
+.ft-banner-image {
+    /* REPLACE 'footer-banner.jpg' with your actual filename */
+    background-image: url('Strip.png'); 
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    min-height: 350px; /* Height of your image strip */
+    display: flex;
+    align-items: center;
+}
+
+.ft-banner-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.ft-banner-left h2 {
+    color: #FFFFFF;
+    font-size: 54px;
+    font-weight: 400;
+    line-height: 1.1;
+}
+
+.ft-banner-right {
+    text-align: right;
+    max-width: 350px;
+}
+
+.ft-banner-right p {
+    color: #FFFFFF;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.ft-btn-cyan {
+    display: inline-block;
+    background-color: #48CAE4;
+    color: #081812;
+    padding: 14px 35px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+.ft-btn-cyan:hover{
+    background-color: #ffffff !important; /* Changes from Cyan to White */
+    color: #081812 !important;
+    border: none !important;              /* Ensures no outline appears */
+}
+
+
+/* --- 2. Bottom Info Area --- */
+.ft-bottom {
+    padding: 80px 0 40px 0;
+}
+
+.ft-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    margin-bottom: 50px;
+}
+
+.ft-label {
+    color: #999;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.ft-value {
+    color: #111;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.6;
+    margin-bottom: 5px;
+}
+
+/* --- Logo Styling --- */
+.ft-main-logo {
+    max-width: 320px;
+    height: auto;
+    display: block;
+    margin-left: -30px; /* Aligns visually with the 'C' in Contact */
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .ft-banner-content { flex-direction: column; text-align: center; gap: 30px; }
+    .ft-banner-right { text-align: center; }
+    .ft-info-grid { grid-template-columns: 1fr; }
+}
